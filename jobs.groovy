@@ -11,7 +11,7 @@ job("MNTLAB-ikazlouski-main-build-job") {
           description('Allows user choose from multiple choices')
           choiceType('CHECKBOX')
           groovyScript {
-            script('["MNTLAB-ikazlouski-child1-build-job", "MNTLAB-ikazlouski-child2-build-job", "MNTLAB-ikazlouski-child3-build-job", "MNTLAB-ikazlouski-child4-build-job"]')
+            script('return ["MNTLAB-ikazlouski-child1-build-job", "MNTLAB-ikazlouski-child2-build-job", "MNTLAB-ikazlouski-child3-build-job", "MNTLAB-ikazlouski-child4-build-job"]')
           }
 	 }
 	 

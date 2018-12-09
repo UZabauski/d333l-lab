@@ -47,5 +47,17 @@ job('MNTLAB-ikazlouski-child-' + i + '-build-job'){
         parameters {
            choiceParam('BRANCH_NAME', ['ikazlouski', 'master'])
         }
+ 	steps
+        {
+           shell('chmod +x script.sh')
+           shell('./script.sh > output.txt')
+           shell('tar -czf ${BRANCH_NAME}_dsl_script.tar.gz jobs.groovy script.sh')
+        }
+
+        publishers
+        { 
+            archiveArtifacts('output.txt')
+            archiveArtifacts('${BRANCH_NAME}_dsl_script.tar.gz')
+	}
  }       
 } 	

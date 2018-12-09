@@ -38,9 +38,9 @@ job("MNTLAB-ikazlouski-main-build-job") {
         } 
 }
 
-for (i in 1..4)
+for (i=1; i<5; i++)
 {
-job('MNTLAB-ikazlouski-child-${i}-build-job'){
+job('MNTLAB-ikazlouski-child-' + i + '-build-job'){
 	scm {
          github('MNT-Lab/d333l-lab', 'ikazlouski')
         }

@@ -38,14 +38,14 @@ job("MNTLAB-ikazlouski-main-build-job") {
         } 
 }
 
-#for (i = 1; i < 5; i++)
-#{
-#job('MNTLAB-ikazlouski-child' + i + '-build-job')
-#	scm {
-#         github('MNT-Lab/d333l-lab', 'ikazlouski')
-#        }
-#        parameters {
-#           choiceParam('BRANCH_NAME', ['ikazlouski', 'master'])
-#        }
-#        
-#} 	
+/*for (i = 1; i < 5; i++)
+{
+job('MNTLAB-ikazlouski-child' + i + '-build-job')
+	scm {
+         github('MNT-Lab/d333l-lab', 'ikazlouski')
+        }
+        parameters {
+           choiceParam('BRANCH_NAME', ['ikazlouski', 'master'])
+        }
+        
+}*/ 	

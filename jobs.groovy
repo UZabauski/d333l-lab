@@ -11,7 +11,7 @@ job("MNTLAB-ikazlouski-main-build-job") {
           description('Allows user choose from multiple choices')
           choiceType('CHECKBOX')
           groovyScript {
-            script('def used_jobs = ["MNTLAB-ikazlouski-child1-build-job", "MNTLAB-ikazlouski-child2-build-job", "MNTLAB-ikazlouski-child3-build-job", "MNTLAB-ikazlouski-child4-build-job"] \n return used_jobs')
+            script('["MNTLAB-ikazlouski-child1-build-job", "MNTLAB-ikazlouski-child2-build-job", "MNTLAB-ikazlouski-child3-build-job", "MNTLAB-ikazlouski-child4-build-job"]')
           }
 	 }
 	 
@@ -40,7 +40,7 @@ job("MNTLAB-ikazlouski-main-build-job") {
 
 for (i=1; i<5; i++)
 {
-job('MNTLAB-ikazlouski-child-' + i + '-build-job'){
+job('MNTLAB-ikazlouski-child' + i + '-build-job'){
 	scm {
          github('MNT-Lab/d333l-lab', 'ikazlouski')
         }

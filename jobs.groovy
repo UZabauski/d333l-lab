@@ -15,9 +15,21 @@ parameters {
         }
 }
         
-
 steps {
+	downstreamParameterized {
+            trigger('$JOB') {
+                block {
+                    buildStepFailure('FAILURE')
+                    failure('FAILURE')
+                    unstable('UNSTABLE')
+                }
+                parameters {
+                    predefinedProp('BRANCH_NAME', '$BRANCH_NAME')
+                }                 
+               
+            }
+            
+        }
 
-}
-
+    }
 }

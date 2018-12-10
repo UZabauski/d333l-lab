@@ -1,6 +1,6 @@
 job('MNTLAB-umuraveika-main-build-job') {
     scm {
-        git('https://github.com/MNT-Lab/d333l-lab.git', '$BRANCH_NAME')
+        git('https://github.com/MNT-Lab/d333l-lab.git', '$Branch_name')
         }
         parameters {
                 choiceParam('Branch_name', ['umuraveika', 'master'])
@@ -16,7 +16,7 @@ job('MNTLAB-umuraveika-main-build-job') {
         downstreamParameterized {
             trigger('$child_jobs') { 
                 parameters {
-                    predefinedProp('BRANCH_NAME', '$BRANCH_NAME');
+                    predefinedProp('Branch_name', '$Branch_name');
                             }
                 block {
                       buildStepFailure('FAILURE');
@@ -31,10 +31,10 @@ job('MNTLAB-umuraveika-main-build-job') {
 for (i = 1; i <5; i++) {
     job ("MNTLAB-umuraveika-child$i-build-job") {
         scm {
-            github('MNT-Lab/d333l-lab', '$BRANCH_NAME')
+            github('MNT-Lab/d333l-lab', '$Branch_name')
               }
         parameters {
-                gitParam('BRANCH_NAME') {
+                gitParam('Branch_name') {
                     description('branch from git')
                     type('BRANCH')
                 }
@@ -42,11 +42,11 @@ for (i = 1; i <5; i++) {
         steps {
             shell('chmod +x script.sh')
             shell('./script.sh > output.txt')
-            shell('tar -czf ${BRANCH_NAME}_dsl_script.tar.gz jobs.groovy script.sh')
+            shell('tar -czf ${Branch_name}_dsl_script.tar.gz jobs.groovy script.sh')
         }
         publishers { 
             archiveArtifacts('output.txt')
-            archiveArtifacts('${BRANCH_NAME}_dsl_script.tar.gz')
+            archiveArtifacts('${Branch_name}_dsl_script.tar.gz')
         }
     }
 }

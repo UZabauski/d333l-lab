@@ -14,3 +14,7 @@ job('MNTLAB-aisachanka-main-build-job') {
 	}
 }
 
+for (i = 1; i <5; i++) {
+	job ("MNTLAB-aisachanka-child$i-build-job")
+}
+

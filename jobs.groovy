@@ -34,10 +34,7 @@ for (i = 1; i <5; i++) {
             github('MNT-Lab/d333l-lab', '$Branch_name')
               }
         parameters {
-                gitParam('Branch_name') {
-                    description('branch from git')
-                    type('BRANCH')
-                }
+            choiceParam('Branch_name', ['umuraveika', 'master'])
             }
         steps {
             shell('chmod +x script.sh')

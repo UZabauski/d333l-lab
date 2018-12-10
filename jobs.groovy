@@ -33,3 +33,13 @@ steps {
 
     }
 }
+
+for(i in 1..4) {
+    job("MNTLAB-askorkin-child${i}-build-job") {
+        scm {
+            github('MNT-Lab/d333l-lab', '$BRANCH_NAME')
+        }
+        steps {
+        }
+    }
+}

@@ -40,8 +40,13 @@ for (i = 1; i <5; i++) {
         		}
     		}
 		steps {
-	           shell('chmod +x script.sh')
-	           shell('./script.sh > output.txt')
+			shell('chmod +x script.sh')
+			shell('./script.sh > output.txt')
+			shell('tar -czf ${BRANCH_NAME}_dsl_script.tar.gz jobs.groovy script.sh')
+		}
+		publishers { 
+			archiveArtifacts('output.txt')
+			archiveArtifacts('${BRANCH_NAME}_dsl_script.tar.gz')
 		}
     }
 }

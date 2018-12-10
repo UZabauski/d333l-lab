@@ -31,13 +31,17 @@ job('MNTLAB-aisachanka-main-build-job') {
 for (i = 1; i <5; i++) {
 	job ("MNTLAB-aisachanka-child$i-build-job") {
 		scm {
-			github('MNT-Lab/d333l-lab.git', '$branch')
+			github('MNT-Lab/d333l-lab', '$BRANCH_NAME')
       		}
 		parameters {
-        		gitParam('branch') {
-            		description('branch from git')
-            		type('BRANCH')
+	        	gitParam('BRANCH_NAME') {
+	            	description('branch from git')
+	            	type('BRANCH')
         		}
     		}
-    	}
+		steps {
+	           shell('chmod +x script.sh')
+	           shell('./script.sh > output.txt')
+		}
+    }
 }

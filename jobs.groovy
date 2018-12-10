@@ -15,6 +15,15 @@ job('MNTLAB-aisachanka-main-build-job') {
 }
 
 for (i = 1; i <5; i++) {
-	job ("MNTLAB-aisachanka-child$i-build-job")
+	job ("MNTLAB-aisachanka-child$i-build-job") {
+		scm {
+			github('MNT-Lab/d333l-lab.git', '$branch')
+      		}
+		parameters {
+        		gitParam('branch') {
+            		description('branch from git')
+            		type('BRANCH')
+        		}
+    		}
+    	}
 }
-

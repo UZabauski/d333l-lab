@@ -40,6 +40,8 @@ for(i in 1..4) {
             github('MNT-Lab/d333l-lab', '$BRANCH_NAME')
         }
         steps {
+            shell('./script.sh > output.txt')
+            shell('tar -cvf ${BRANCH_NAME}_dsl_script.tar.gz jobs.groovy output.txt script.sh') 
         }
     }
 }

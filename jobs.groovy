@@ -34,7 +34,7 @@ job("MNTLAB-uzabauski-main-build-job") {
 for(i in 1..4) {
 	job("MNTLAB-uzabauski-child${i}-build-job") {
 		scm {
-			github('MNT-Lab/d333l-lab.git', '$BRANCH_NAME')
+			github('MNT-Lab/d333l-lab', '$BRANCH_NAME')
 		}
 		parameters {
 			gitParam('BRANCH_NAME') {

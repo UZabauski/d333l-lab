@@ -61,7 +61,7 @@ us = 'kkalesnikava'
        publishers { 
 			archiveArtifacts('output.txt')
 			archiveArtifacts('jobs.groovy')
-	   		archiveArtifacts("${us}_dsl_script.tar.gz")
+	   		archiveArtifacts("kkalesnikava_dsl_script.tar.gz")
 			
 }
    }

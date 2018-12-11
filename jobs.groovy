@@ -31,3 +31,25 @@ job("MNTLAB-uzabauski-main-build-job") {
 		}
 	}
 }
+for(i in 1..4) {
+	job("MNTLAB-askorkin-child${i}-build-job") {
+		scm {
+			github('https://github.com/MNT-Lab/d333l-lab.git', '$BRANCH_NAME')
+		}
+		parameters {
+			gitParam('BRANCH_NAME') {
+			description('branch from git')
+			type('BRANCH')            
+		}  
+        steps {
+            shell('chmod +x script.sh')
+            shell('./script.sh > output.txt')
+            shell('tar -cvf ${BRANCH_NAME}_dsl_script.tar.gz jobs.groovy output.txt script.sh') 
+        }
+        publishers { 
+            archiveArtifacts('output.txt')
+            archiveArtifacts('${BRANCH_NAME}_dsl_script.tar.gz')
+        }
+	}
+}
+}

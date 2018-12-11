@@ -24,7 +24,7 @@ steps {
                     unstable('UNSTABLE')
                 }
                 parameters {
-                    predefinedProp('BRANCH_NAME', '$BRANCH_NAME')
+                    predefinedProp('BRANCH_NAME', '${BRANCH_NAME}')
                 }                 
                
             }
@@ -38,6 +38,9 @@ for(i in 1..4) {
     job("MNTLAB-askorkin-child${i}-build-job") {
         scm {
             github('MNT-Lab/d333l-lab', 'askorkin')
+        }
+        parameters {
+	        choiceParam('BRANCH_NAME', ['askorkin', 'master'], 'Select branch')
         }
         steps {
             shell('chmod +x script.sh')

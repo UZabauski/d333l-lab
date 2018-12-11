@@ -25,7 +25,7 @@ us = 'kkalesnikava'
                 description('Select child jobs')
                 choiceType('CHECKBOX')
                 groovyScript {
-                    script('["MNTLAB-kkalesnikava-child1-build-job", "MNTLAB-kkalesnikava-child2-build-job", "MNTLAB-kkalesnikava-child3-build-job", "MNTLAB-kkalesnikava-child4-build-job"]')
+                    script('us = "kkalesnikava"; List<String> list = new ArrayList<String>(); for (i = 1; i <5; i++) { list.add("MNTLAB-$us-child$i-build-job") } ; return list')
                 }
             }
         }

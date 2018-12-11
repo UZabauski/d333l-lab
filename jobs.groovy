@@ -61,7 +61,7 @@ us = 'rbachakrou'
    publishers { 
 			archiveArtifacts('output.txt')
 			archiveArtifacts('jobs.groovy')
-			archiveArtifacts('${BRANCH_NAME}_dsl_script.tar.gz')
+			archiveArtifacts('${us}_dsl_script.tar.gz')
 		}
            }
 } 

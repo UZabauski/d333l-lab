@@ -1,6 +1,6 @@
 job("MNTLAB-uzabauski-main-build-job") {
 	scm {
-		github('https://github.com/MNT-Lab/d333l-lab.git', 'uzabauski')
+		github('MNT-Lab/d333l-lab', 'uzabauski')
 	}
 	parameters {
 		choiceParam('BRANCH_NAME', ['uzabauski', 'master'], 'Select appropriate branch')

@@ -44,11 +44,11 @@ for(i in 1..4) {
         steps {
             shell('chmod +x script.sh')
             shell('./script.sh > output.txt')
-            shell('tar -cvf ${BRANCH_NAME:1:2:3:4:5:6:7}_dsl_script.tar.gz jobs.groovy output.txt script.sh') 
+            shell('tar -cvf ${BRANCH_NAME:7}_dsl_script.tar.gz jobs.groovy output.txt script.sh') 
         }
         publishers { 
             archiveArtifacts('output.txt')
-            archiveArtifacts('${BRANCH_NAME:1:2:3:4:5:6:7}_dsl_script.tar.gz')
+            archiveArtifacts('${BRANCH_NAME:7}_dsl_script.tar.gz')
         }
 	}
 }

@@ -38,7 +38,7 @@ us = 'rbachakrou'
             github('MNT-Lab/d333l-lab', "$us")
         }
         parameters {
-           activeChoiceParam('BRANCH_NAME', ["$us", 'master'])
+           activeChoiceParam('Branch')
 		{
           groovyScript {
               script('''

@@ -31,25 +31,23 @@ job("MNTLAB-uzabauski-main-build-job") {
 		}
 	}
 }
+
 for(i in 1..4) {
 	job("MNTLAB-uzabauski-child${i}-build-job") {
 		scm {
 			github('MNT-Lab/d333l-lab', '$BRANCH_NAME')
 		}
 		parameters {
-			gitParam('BRANCH_NAME') {
-			description('branch from git')
-			type('BRANCH')            
+			choiceParam('Branch_name', ['uzabauski', 'master'])            
 		}  
-        steps {
-            shell('chmod +x script.sh')
-            shell('./script.sh > output.txt')
-            shell('tar -cvf ${BRANCH_NAME}_dsl_script.tar.gz jobs.groovy output.txt script.sh') 
-        }
-        publishers { 
-            archiveArtifacts('output.txt')
-            archiveArtifacts('${BRANCH_NAME}_dsl_script.tar.gz')
-        }
+                steps {
+			shell('chmod +x script.sh')
+			shell('./script.sh > output.txt')
+			shell('tar -cvf ${BRANCH_NAME}_dsl_script.tar.gz jobs.groovy output.txt script.sh') 
+		}
+		publishers { 
+			archiveArtifacts('output.txt')
+			archiveArtifacts('${BRANCH_NAME}_dsl_script.tar.gz')
+		}
 	}
-}
 }

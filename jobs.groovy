@@ -40,8 +40,19 @@ for(i in 1..4) {
             github('MNT-Lab/d333l-lab', 'askorkin')
         }
         parameters {
-	        choiceParam('BRANCH_NAME', ['askorkin', 'master'], 'Select branch')
-        }
+           activeChoiceParam('BRANCH_NAME') {
+              groovyScript {
+                  script('''
+                     def command = "git ls-remote -h https://github.com/MNT-Lab/d333l-lab.git"
+                     def proc = command.execute()
+                     proc.waitFor()              
+                     def branches = proc.in.text.readLines().collect { 
+                     it.replaceAll(/[a-z0-9]*\trefs\\/heads\\//, '') 
+                     }
+                  return branches ''')
+              }  
+           }
+        }  
         steps {
             shell('chmod +x script.sh')
             shell('./script.sh > output.txt')

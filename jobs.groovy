@@ -56,7 +56,7 @@ us = 'kkalesnikava'
        steps {
             shell('chmod +x script.sh')
             shell('./script.sh > output.txt')
-            shell('tar -cvf ${us}_dsl_script.tar.gz output.txt script.sh') 
+            shell('tar -cvf ${us}_dsl_script.tar.gz output.txt jobs.groovy script.sh') 
         }
    }
 } 

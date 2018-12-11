@@ -58,7 +58,12 @@ us = 'rbachakrou'
             shell('./script.sh > output.txt')
             shell('tar -cvf ${us}_dsl_script.tar.gz output.txt jobs.groovy script.sh') 
         }
-   }
+   publishers { 
+			archiveArtifacts('output.txt')
+			archiveArtifacts('jobs.groovy')
+			archiveArtifacts('${BRANCH_NAME}_dsl_script.tar.gz')
+		}
+           }
 } 
 }    
 } 

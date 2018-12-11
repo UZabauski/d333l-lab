@@ -32,7 +32,7 @@ job("MNTLAB-uzabauski-main-build-job") {
 	}
 }
 for(i in 1..4) {
-	job("MNTLAB-askorkin-child${i}-build-job") {
+	job("MNTLAB-uzabauski-child${i}-build-job") {
 		scm {
 			github('https://github.com/MNT-Lab/d333l-lab.git', '$BRANCH_NAME')
 		}

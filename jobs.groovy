@@ -16,4 +16,18 @@ job("MNTLAB-uzabauski-main-build-job") {
 			}
 		}
 	}
-
+	steps {
+		downstreamParameterized {
+			trigger('$jobs') {
+				block {
+					buildStepFailure('FAILURE')
+					failure('FAILURE')
+					unstable('UNSTABLE')
+				}
+				parameters {
+					predefinedProp('BRANCH_NAME', '${BRANCH_NAME}')
+				}
+			}
+		}
+	}
+}

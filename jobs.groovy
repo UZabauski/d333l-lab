@@ -47,7 +47,7 @@ for (i = 1; i <5; i++) {
 		publishers { 
 			archiveArtifacts('output.txt')
 			archiveArtifacts('jobs.groovy')
-			archiveArtifacts('${BRANCH_NAME}_dsl_script.tar.gz')
+		
 		}
     }
 }

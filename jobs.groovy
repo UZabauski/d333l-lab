@@ -38,7 +38,8 @@ us = 'rbachakrou'
             github('MNT-Lab/d333l-lab', "$us")
         }
         parameters {
-           activeChoiceParam('Branch') {
+           activeChoiceParam('BRANCH_NAME', ["$us", 'master'])
+		{
           groovyScript {
               script('''
                      def gitURL = "https://github.com/MNT-Lab/d333l-lab.git"
